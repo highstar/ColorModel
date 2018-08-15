@@ -15,6 +15,8 @@
 		AED6E49221216BB3006FFC16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AED6E49121216BB3006FFC16 /* main.m */; };
 		AED6E49C21216BB3006FFC16 /* ColorModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AED6E49B21216BB3006FFC16 /* ColorModelTests.m */; };
 		AED6E4A721216BB3006FFC16 /* ColorModelUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AED6E4A621216BB3006FFC16 /* ColorModelUITests.m */; };
+		AED6E4B621219514006FFC16 /* CMColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AED6E4B521219514006FFC16 /* CMColor.m */; };
+		AEF4CE0D2123A3EC009E4949 /* CMColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEF4CE0C2123A3EC009E4949 /* CMColorView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,10 @@
 		AED6E4A221216BB3006FFC16 /* ColorModelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColorModelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AED6E4A621216BB3006FFC16 /* ColorModelUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColorModelUITests.m; sourceTree = "<group>"; };
 		AED6E4A821216BB3006FFC16 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AED6E4B421219514006FFC16 /* CMColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMColor.h; sourceTree = "<group>"; };
+		AED6E4B521219514006FFC16 /* CMColor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMColor.m; sourceTree = "<group>"; };
+		AEF4CE0B2123A3EC009E4949 /* CMColorView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CMColorView.h; sourceTree = "<group>"; };
+		AEF4CE0C2123A3EC009E4949 /* CMColorView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CMColorView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,10 @@
 				AED6E48D21216BB3006FFC16 /* LaunchScreen.storyboard */,
 				AED6E49021216BB3006FFC16 /* Info.plist */,
 				AED6E49121216BB3006FFC16 /* main.m */,
+				AED6E4B421219514006FFC16 /* CMColor.h */,
+				AED6E4B521219514006FFC16 /* CMColor.m */,
+				AEF4CE0B2123A3EC009E4949 /* CMColorView.h */,
+				AEF4CE0C2123A3EC009E4949 /* CMColorView.m */,
 			);
 			path = ColorModel;
 			sourceTree = "<group>";
@@ -265,6 +275,8 @@
 				AED6E48721216BAF006FFC16 /* ViewController.m in Sources */,
 				AED6E49221216BB3006FFC16 /* main.m in Sources */,
 				AED6E48421216BAF006FFC16 /* AppDelegate.m in Sources */,
+				AEF4CE0D2123A3EC009E4949 /* CMColorView.m in Sources */,
+				AED6E4B621219514006FFC16 /* CMColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +455,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ympc.ColorModel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -459,7 +471,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ympc.ColorModel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

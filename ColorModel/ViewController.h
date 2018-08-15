@@ -7,8 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMColor.h"
+#import "CMColorView.h"
 
 @interface ViewController : UIViewController
+
+@property (strong, nonatomic) CMColor *colorModel;
+@property (weak, nonatomic) IBOutlet CMColorView *colorView;
+@property (weak, nonatomic) IBOutlet UILabel *hueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *saturationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *brightnessLabel;
+@property (weak, nonatomic) IBOutlet UILabel *webLabel;
+
+- (IBAction)changeHue:(UISlider*)sender;
+- (IBAction)changeSaturation:(UISlider*)sender;
+- (IBAction)changeBrightness:(UISlider*)sender;
 
 
 @end
