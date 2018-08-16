@@ -13,11 +13,16 @@
 @interface ViewController : UIViewController
 
 @property (strong, nonatomic) CMColor *colorModel;
+
 @property (weak, nonatomic) IBOutlet CMColorView *colorView;
 @property (weak, nonatomic) IBOutlet UILabel *hueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *saturationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *brightnessLabel;
 @property (weak, nonatomic) IBOutlet UILabel *webLabel;
+
+@property (weak, nonatomic) IBOutlet UISlider *hueSlider;
+@property (weak, nonatomic) IBOutlet UISlider *saturationSlider;
+@property (weak, nonatomic) IBOutlet UISlider *brightnessSlider;
 
 - (IBAction)changeHue:(UISlider*)sender;
 - (IBAction)changeSaturation:(UISlider*)sender;

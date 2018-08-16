@@ -10,6 +10,11 @@
 
 @implementation CMColor
 
++ (NSSet*)keyPathsForValuesAffectingColor
+{
+    return [NSSet setWithObjects:@"hue", @"saturation", @"brightness", nil];
+}
+
 - (UIColor*)color
 {
     return [UIColor colorWithHue:self.hue/360

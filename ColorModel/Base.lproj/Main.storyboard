@@ -129,9 +129,12 @@
                     </view>
                     <connections>
                         <outlet property="brightnessLabel" destination="CvE-bt-OgE" id="lPc-z9-XtA"/>
+                        <outlet property="brightnessSlider" destination="8Aj-Kr-SGa" id="qHD-OQ-gh1"/>
                         <outlet property="colorView" destination="mcF-3I-hjo" id="Wud-ZJ-uM7"/>
                         <outlet property="hueLabel" destination="5Ml-Pd-MBi" id="yEi-FM-Zyu"/>
+                        <outlet property="hueSlider" destination="olf-Re-gLs" id="0pv-fS-pxP"/>
                         <outlet property="saturationLabel" destination="Ezy-rr-18P" id="dPN-oY-3ul"/>
+                        <outlet property="saturationSlider" destination="2y9-aS-0ca" id="QyV-uO-GHM"/>
                         <outlet property="webLabel" destination="58F-Ex-h1O" id="40U-iY-rFs"/>
                     </connections>
                 </viewController>
