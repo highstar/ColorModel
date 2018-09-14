@@ -23,4 +23,17 @@
                            alpha:1];
 }
 
+- (NSString *)rgbCodeWithPrefix:(NSString *)prefix
+{
+    if (prefix == nil)
+        prefix = @"";
+    CGFloat red, green, blue, alpha;
+    [self.color getRed:&red green:&green blue:&blue alpha:&alpha];
+    return [NSString stringWithFormat:@"%@%02lx%02lx%02lx",
+            prefix,
+            lround(red * 255),
+            lround(green * 255),
+            lround(blue * 255)];
+}
+
 @end

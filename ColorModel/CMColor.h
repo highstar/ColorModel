@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) float brightness;
 @property (readonly, nonatomic) UIColor *color;
 
+- (NSString *)rgbCodeWithPrefix:(NSString *)prefix;
 @end
 
 NS_ASSUME_NONNULL_END

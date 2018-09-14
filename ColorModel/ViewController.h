@@ -27,6 +27,7 @@
 - (IBAction)changeHue:(UISlider*)sender;
 - (IBAction)changeSaturation:(UISlider*)sender;
 - (IBAction)changeBrightness:(UISlider*)sender;
+- (IBAction)share:(id)sender;
 
 
 @end

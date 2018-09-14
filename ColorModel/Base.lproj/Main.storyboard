@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14306.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14278.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -90,6 +90,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kmt-qL-DO5">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="OAZ-iN-BPe">
+                                        <connections>
+                                            <action selector="share:" destination="BYZ-38-t0r" id="qCv-cA-6lB"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -120,7 +130,10 @@
                             <constraint firstItem="mcF-3I-hjo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="cVc-Ib-rvN"/>
                             <constraint firstItem="mcF-3I-hjo" firstAttribute="trailing" secondItem="olf-Re-gLs" secondAttribute="trailing" constant="47" id="cgl-17-T3U"/>
                             <constraint firstItem="olf-Re-gLs" firstAttribute="width" secondItem="8Aj-Kr-SGa" secondAttribute="width" id="eSP-BF-I77"/>
+                            <constraint firstItem="kmt-qL-DO5" firstAttribute="centerX" secondItem="mcF-3I-hjo" secondAttribute="centerX" id="eqf-5n-Qkc"/>
+                            <constraint firstItem="kmt-qL-DO5" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="h4Y-sk-VM6"/>
                             <constraint firstItem="xqO-jI-0wc" firstAttribute="top" secondItem="b1l-dt-Jzg" secondAttribute="bottom" constant="16" id="snu-j5-ryu"/>
+                            <constraint firstItem="kmt-qL-DO5" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="vwr-Cl-tkK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8Aj-Kr-SGa" secondAttribute="bottom" constant="456" id="w60-Sg-Qmy"/>
                             <constraint firstItem="2y9-aS-0ca" firstAttribute="top" secondItem="olf-Re-gLs" secondAttribute="bottom" constant="8" symbolic="YES" id="whc-yL-TBL"/>
                             <constraint firstItem="mcF-3I-hjo" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="yzT-l2-g2n"/>
