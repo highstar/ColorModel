@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CMColorView : UIView
 
 @property (strong, nonatomic) CMColor *colorModel;
+@property (readonly, nonatomic) UIImage *image;
 
 @end
 

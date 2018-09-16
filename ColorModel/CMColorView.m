@@ -37,14 +37,10 @@
         CGImageRelease(hsImageRef);
 }
 
-- (void)drawRect:(CGRect)rect
-{
-    CGRect bounds = self.bounds;
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
+- (void)drawColorInRect:(const CGRect *)bounds context:(CGContextRef)context {
     if (hsImageRef != NULL && (brightness != _colorModel.brightness ||
-                               bounds.size.width != CGImageGetWidth(hsImageRef) ||
-                               bounds.size.height != CGImageGetHeight(hsImageRef)))
+                               bounds->size.width != CGImageGetWidth(hsImageRef) ||
+                               bounds->size.height != CGImageGetHeight(hsImageRef)))
     {
         CGImageRelease(hsImageRef);
         hsImageRef = NULL;
@@ -53,8 +49,8 @@
     if (hsImageRef == NULL)
     {
         brightness = _colorModel.brightness;
-        NSUInteger width = bounds.size.width;
-        NSUInteger height = bounds.size.height;
+        NSUInteger width = bounds->size.width;
+        NSUInteger height = bounds->size.height;
         typedef struct {
             uint8_t red;
             uint8_t green;
@@ -88,9 +84,9 @@
         CGDataProviderRelease(provider);
     }
     
-    CGContextDrawImage(context, bounds, hsImageRef);
-    CGRect circleRect = CGRectMake(bounds.origin.x + bounds.size.width * _colorModel.hue / 360 - kCircleRadius / 2,
-                                   bounds.origin.y + bounds.size.height * _colorModel.saturation / 100 - kCircleRadius / 2,
+    CGContextDrawImage(context, *bounds, hsImageRef);
+    CGRect circleRect = CGRectMake(bounds->origin.x + bounds->size.width * _colorModel.hue / 360 - kCircleRadius / 2,
+                                   bounds->origin.y + bounds->size.height * _colorModel.saturation / 100 - kCircleRadius / 2,
                                    kCircleRadius,
                                    kCircleRadius);
     UIBezierPath *circle = [UIBezierPath bezierPathWithOvalInRect:circleRect];
@@ -99,6 +95,13 @@
     circle.lineWidth = 3;
     [[UIColor blackColor] setStroke];
     [circle stroke];
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    CGRect bounds = self.bounds;
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [self drawColorInRect:&bounds context:context];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -125,4 +128,26 @@
         _colorModel.saturation = (point.y - bounds.origin.y) / bounds.size.height*100;
     }
 }
+
+- (UIImage *)image
+{
+    CGRect bounds = self.bounds;
+    CGSize imageSize = bounds.size;
+    CGFloat margin = kCircleRadius / 2 + 2;
+    imageSize.width += margin * 2;
+    imageSize.height += margin  * 2;
+    bounds = CGRectOffset(bounds, margin, margin);
+    
+    UIGraphicsBeginImageContext(imageSize);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [[UIColor clearColor] set];
+    CGContextFillRect(context, CGRectMake(0, 0, imageSize.width, imageSize.height));
+    [self drawColorInRect:&bounds context:context];
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+
 @end

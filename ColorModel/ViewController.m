@@ -67,11 +67,70 @@
         [self.colorView setNeedsDisplay];
         CGFloat red, green, blue, alpha;
         [self.colorModel.color getRed:&red green:&green blue:&blue alpha:&alpha];
-        self.webLabel.text = [NSString stringWithFormat:@"#%02lx%02lx%02lx",
-                              lroundf(red*0xff),
-                              lroundf(green*0xff),
-                              lroundf(blue*0xff)];
+        self.webLabel.text = [self.colorModel rgbCodeWithPrefix:@"#"];
     }
+}
+
+- (IBAction)share:(id)sender
+{
+    UIImage *shareImage = self.colorView.image;
+    NSURL *shareURL = [NSURL URLWithString:@"http://www.learniosappdev.com/"];
+    NSArray *itemsToShare = @[self,shareImage,shareURL];
+    
+    UIActivityViewController *activityViewController;
+    
+    activityViewController = [[ UIActivityViewController alloc] initWithActivityItems:itemsToShare
+                                                                applicationActivities:nil];
+    activityViewController.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypePrint];
+    
+    [self presentViewController:activityViewController
+                       animated:YES
+                     completion:nil];
+}
+
+- (id)activityViewController:(UIActivityViewController *)activityViewController
+         itemForActivityType:(NSString *)activityType
+{
+    CMColor *color = self.colorModel;
+    NSString *message = nil;
+    if ([activityType isEqualToString:UIActivityTypePostToTwitter] ||
+        [activityType isEqualToString:UIActivityTypePostToWeibo])
+    {
+        // Twitter and Weibo
+        message = [NSString stringWithFormat:
+                   @"Today's color is RGB=%@. I wrote an iOS app to do this! @LearniOSAppDev",
+                   [color rgbCodeWithPrefix:nil]];
+    }
+    else if ([activityType isEqualToString:UIActivityTypeMail])
+    {
+        // email
+        message = [NSString stringWithFormat:
+                   @"Hello,\n\n"
+                   @"I wrote an awesome iOS app that lets me share a color with my friends.\n\n"
+                   @"Here's my color (see attachment): hue=%.0f\u00b0, "
+                   @"saturation=%.0f%%, "
+                   @"brightness=%.0f%%.\n\n"
+                   @"If you like it, use the code %@ in your design.\n\n"
+                   @"Enjoy,\n\n",
+                   color.hue,
+                   color.saturation,
+                   color.brightness,
+                   [color rgbCodeWithPrefix:@"#"]];
+    }
+    else
+    {
+        // Facebook, SMS, and anything else
+        message = [NSString stringWithFormat:
+                   @"I wrote a great iOS app to share this color: %@",
+                   [color rgbCodeWithPrefix:@"#"]];
+    }
+    
+    return message;
+}
+
+- (id)activityViewControllerPlaceholderItem:(UIActivityViewController *)activityViewController
+{
+    return @"My color message goes here.";
 }
 
 @end

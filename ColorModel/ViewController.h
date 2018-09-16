@@ -10,7 +10,7 @@
 #import "CMColor.h"
 #import "CMColorView.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UIActivityItemSource>
 
 @property (strong, nonatomic) CMColor *colorModel;
 
